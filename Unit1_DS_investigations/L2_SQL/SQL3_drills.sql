@@ -1,7 +1,8 @@
--- -- Third drills on Joins and CTEs 
+-- Drills on Joins and CTEs 
 
---What are the three longest trips on rainy days?
-SELECT > FROM > JOIN - ON > WHERE > GROUP BY > ORDER BY 
+--Q.1. What are the three longest trips on rainy days?
+--SELECT > FROM > JOIN - ON > WHERE > GROUP BY > ORDER BY 
+
 SELECT 
 	weather.Events, 
 	trips.duration,
@@ -18,7 +19,7 @@ ORDER BY duration desc
 LIMIT 3
 -- three trips ranging between  81434 - 83915
 
---Which station is full most often?
+--Q2. Which station is full most often?
 WITH
     empty_station
 AS (
@@ -44,7 +45,7 @@ ON
 ORDER BY e.station_count DESC
 -- San Francisco Caltrain (Townsend at 4th, id - 70), 23450 times zero docks available
 
---Return a list of stations with a count of number of trips starting at that station but ordered by dock count.
+--Q3. Return a list of stations with a count of number of trips starting at that station but ordered by dock count.
 SELECT 
 	stations.station_id, 
 	trips.start_station,
@@ -59,7 +60,7 @@ GROUP BY trips.start_station
 ORDER BY stations.dockcount
 -- 63 rows returned least - Castro st. & El Camino Real, max. Cyrill Magnin St. at Ellis St. 
 
---(Challenge) What's the length of the longest trip for each day it rains anywhere?
+--Q4. (Challenge) What's the length of the longest trip for each day it rains anywhere?
 WITH mx_zip AS(
 	WITH mx_date AS (
 		SELECT start_date, MAX(duration) max_dur, zip_code

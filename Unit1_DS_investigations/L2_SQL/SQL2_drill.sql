@@ -1,5 +1,6 @@
--- -- Second drill on Aggregates and CTEs
---What was the hottest day in our data set? Where was that?
+--  Second drill on Aggregates and groups
+
+--Q1. What was the hottest day in our data set? Where was that?
 SELECT 
 	weather.Date, 
 	MAX(weather.MaxTemperatureF), 
@@ -20,7 +21,7 @@ ORDER BY trip_count
 
 -- 80 rows returned
 
---What's the shortest trip that happened?
+--Q2. What's the shortest trip that happened?
 SELECT 
 	*,
 	MIN(duration)
@@ -28,7 +29,7 @@ FROM
 	trips
 -- duration 60 start station Mezes
 
---What is the average trip duration, by end station?
+--Q3. What is the average trip duration, by end station?
 
 SELECT 
 	end_station, 

@@ -1,3 +1,5 @@
+-- Drills from SELECT, FROM, WHERE 
+
 --Drill1: The ID's and durations for all trips of duration greater than 500, 
 --ordered by duration.
 SELECT 
